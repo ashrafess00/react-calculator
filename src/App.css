@@ -1,0 +1,221 @@
+@font-face {
+  font-family: "Digital";
+  src: url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.eot");
+  src: url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.svg#Digital-7")
+      format("svg");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --backgroung: #c2c2d6;
+  --calc-color: #000000;
+  --ac-color: #ac3939;
+  --light-grey: #666666;
+  --dark-grey: #4d4d4d;
+  --blue: #004466;
+  --orang: #ffa500;
+  --white: white;
+  --body-bg: #c2c2d6;
+}
+body {
+  background-color: var(--body-bg);
+}
+.num.screen {
+  grid-area: s;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: initial;
+  font-family: "Digital";
+  overflow: hidden;
+}
+
+.num {
+  cursor: pointer;
+  user-select: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.num:not(:first-child):hover {
+  outline: orange solid 0.5px;
+}
+
+.calculator {
+  width: 25rem;
+  height: 30rem;
+  text-align: center;
+  display: grid;
+  grid-template-areas:
+    "s s s s"
+    "a a dev mul"
+    "sv e n min"
+    "f fv si plus"
+    "o t th eq"
+    "z z dot eq";
+  grid-template-rows: 4rem;
+  gap: 0.2rem;
+  padding: 0.3rem;
+  background-color: var(--calc-color);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media screen and (max-width: 1000px) {
+  .calculator {
+    width: 80%;
+    height: 30rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .calculator {
+    width: 95%;
+    height: 30rem;
+  }
+}
+.num:focus {
+  background-color: yellow;
+}
+.ac {
+  grid-area: a;
+  background-color: var(--ac-color);
+}
+.dev {
+  grid-area: dev;
+}
+.mul {
+  grid-area: mul;
+}
+
+.seven {
+  grid-area: sv;
+}
+.eight {
+  grid-area: e;
+}
+.nine {
+  grid-area: n;
+}
+.min {
+  grid-area: min;
+}
+.four {
+  grid-area: f;
+}
+.five {
+  grid-area: fv;
+}
+.six {
+  grid-area: si;
+}
+.add {
+  grid-area: plus;
+}
+.one {
+  grid-area: o;
+}
+.two {
+  grid-area: t;
+}
+.three {
+  grid-area: th;
+}
+.equal {
+  grid-area: eq;
+  background-color: var(--blue);
+}
+.zero {
+  grid-area: z;
+}
+.dot {
+  grid-area: dot;
+}
+.dot,
+.zero,
+.one,
+.two,
+.three,
+.four,
+.five,
+.six,
+.seven,
+.eight,
+.nine {
+  background-color: var(--dark-grey);
+  color: var(--white);
+}
+.dev,
+.mul,
+.min,
+.add {
+  background-color: var(--light-grey);
+}
+
+.dot,
+.zero,
+.one,
+.two,
+.three,
+.four,
+.five,
+.six,
+.seven,
+.eight,
+.nine,
+.dev,
+.mul,
+.min,
+.add,
+.ac,
+.equal {
+  color: var(--white);
+}
+
+.op,
+.re {
+  align-self: flex-end;
+  font-size: 1.5rem;
+}
+.op {
+  color: var(--orang);
+}
+.re {
+  color: var(--white);
+}
+
+.desc {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 1rem auto;
+}
+a {
+  color: var(--ac-color);
+  opacity: 0.5;
+}
+@media screen and (max-width: 700px) {
+  .desc {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .desc {
+    font-size: 0.7rem;
+  }
+}
+a:hover {
+  opacity: 1;
+}
